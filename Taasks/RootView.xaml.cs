@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Taasks
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for RootView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class RootView : UserControl
     {
-        public MainWindow()
+        public RootView()
         {
             InitializeComponent();
         }
