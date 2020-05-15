@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Taasks
+﻿namespace Taasks
 {
-    public class RootViewModel
+    public sealed class RootViewModel
     {
     }
 }
