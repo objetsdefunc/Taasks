@@ -15,14 +15,12 @@
         <StackPanel>
             <TextBlock
                 x:Name="Title"
-                HorizontalAlignment="Center"
                 Style="{StaticResource TextStyle}" />
             <TextBlock
                 x:Name="Time"
-                HorizontalAlignment="Center"
                 Style="{StaticResource TextStyle}" />
             <Button x:Name="StartStop">
-                Start
+                Stop
             </Button>
         </StackPanel>
     </Border>

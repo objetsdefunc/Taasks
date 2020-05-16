@@ -46,6 +46,6 @@
             }
         }
 
-        public Taask Taask => taask;
+        public void StartStop() => taask.Stop();
     }
 }

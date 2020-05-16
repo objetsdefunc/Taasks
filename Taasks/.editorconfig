@@ -34,5 +34,17 @@ dotnet_diagnostic.CA1305.severity = none
 # SX1309: Field names should begin with underscore
 dotnet_diagnostic.SX1309.severity = none
 
+# IDE0022: Use block body for methods
+csharp_style_expression_bodied_methods = false:none
+
+# IDE0008: Use explicit type
+csharp_style_var_elsewhere = false:none
+
+# IDE0008: Use explicit type
+csharp_style_var_for_built_in_types = false:none
+
+# IDE0008: Use explicit type
+csharp_style_var_when_type_is_apparent = false:none
+
 [*.xml]
 indent_style = space
