@@ -6,13 +6,13 @@
 
     public sealed class Taask
     {
-        private readonly string name;
+        private readonly string title;
         private readonly IObservable<Duration> time;
         private readonly Instant start;
 
         public Taask(IClock clock)
         {
-            name = "Dummy";
+            title = "Dummy";
             _ = clock ?? throw new ArgumentNullException(nameof(clock));
             start = clock.GetCurrentInstant();
             time =
@@ -20,7 +20,7 @@
                     .Select(_ => clock.GetCurrentInstant() - start);
         }
 
-        public string Name => name;
+        public string Title => title;
 
         public IObservable<Duration> Time => time;
     }

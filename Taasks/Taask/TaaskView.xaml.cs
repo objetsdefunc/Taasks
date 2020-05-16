@@ -1,14 +1,13 @@
 ﻿namespace Taasks
 {
-    using System.Windows;
     using System.Windows.Controls;
 
     /// <summary>
     /// Partial...
     /// </summary>
-    public partial class RootView : Window
+    public partial class TaaskView : UserControl
     {
-        public RootView()
+        public TaaskView()
         {
             InitializeComponent();
         }

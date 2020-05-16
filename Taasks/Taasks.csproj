@@ -88,11 +88,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Taask\TaaskView.xaml.cs">
+      <DependentUpon>TaaskView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RootView.xaml.cs">
       <DependentUpon>RootView.xaml</DependentUpon>
     </Compile>
     <Compile Include="RootViewModel.cs" />
-    <Compile Include="Taask.cs" />
+    <Compile Include="Taask\Taask.cs" />
+    <Compile Include="Taask\TaaskViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -136,6 +140,10 @@
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.1.118\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Page Include="Taask\TaaskView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="RootView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

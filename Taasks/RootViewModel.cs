@@ -6,12 +6,12 @@
 
     public sealed class RootViewModel : Screen
     {
+        private readonly TaaskViewModel taask;
         private string time;
 
         public RootViewModel()
         {
-            _ = new Taask(SystemClock.Instance).Time
-                .Subscribe(t => Time = t.Seconds.ToString());
+            taask = new TaaskViewModel(new Taask(SystemClock.Instance));
         }
 
         public string Time
@@ -26,5 +26,7 @@
                 }
             }
         }
+
+        public TaaskViewModel Taask => taask;
     }
 }
