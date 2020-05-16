@@ -8,7 +8,7 @@
 
         protected override void OnStartup(object sender, System.Windows.StartupEventArgs e)
         {
-            _ = DisplayRootViewFor<RootViewModel>();
+            DisplayRootViewFor<RootViewModel>();
         }
     }
 }

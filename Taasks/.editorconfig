@@ -25,5 +25,14 @@ csharp_using_directive_placement = outside_namespace:none
 # IDE0021: Use block body for constructors
 csharp_style_expression_bodied_constructors = false:none
 
+# IDE0032: Use auto property
+dotnet_style_prefer_auto_properties = true:none
+
+# CA1305: Specify IFormatProvider
+dotnet_diagnostic.CA1305.severity = none
+
+# SX1309: Field names should begin with underscore
+dotnet_diagnostic.SX1309.severity = none
+
 [*.xml]
 indent_style = space

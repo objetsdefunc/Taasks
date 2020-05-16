@@ -20,7 +20,7 @@
                 BorderBrush="GhostWhite"
                 BorderThickness="2"
                 CornerRadius="10">
-                <Grid />
+                <TextBlock x:Name="Time" Foreground="GhostWhite"></TextBlock>
             </Border>
         </Border>
     </Grid>
