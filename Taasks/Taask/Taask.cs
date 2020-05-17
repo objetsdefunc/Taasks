@@ -2,37 +2,34 @@
 {
     using System;
     using System.Reactive.Linq;
+    using System.Reactive.Subjects;
     using NodaTime;
 
     public sealed class Taask
     {
         private readonly string title;
-        private readonly IObservable<Duration> timer;
-        private readonly Instant start;
-        private bool stopped;
+        private readonly TaaskPeriods periods;
+        private readonly ISubject<Duration> time;
 
         // What about checks?
         public Taask(IClock clock)
         {
+            periods = new TaaskPeriods(clock);
             title = "Taask 1";
-            _ = clock ?? throw new ArgumentNullException(nameof(clock));
-            start = clock.GetCurrentInstant();
 
-            timer =
-                Observable.Interval(TimeSpan.FromSeconds(1))
-                    .TakeWhile(_ => !stopped)
-                    .Select(_ => clock.GetCurrentInstant() - start)
-                    .Publish()
-                    .RefCount();
+            time = new BehaviorSubject<Duration>(Duration.Zero);
         }
 
         public string Title => title;
 
-        public IObservable<Duration> Time => timer.StartWith(Duration.Zero);
+        public bool Running => periods.Running;
 
-        public void Stop()
+        public IObservable<Duration> Time => time.StartWith(Duration.Zero);
+
+        public void Toggle()
         {
-            stopped = true;
+            periods.Toggle(
+                duration => time.OnNext(duration));
         }
     }
 }

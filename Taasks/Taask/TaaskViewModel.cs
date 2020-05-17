@@ -8,16 +8,18 @@
         private readonly Taask taask;
         private string title;
         private string time;
+        private string label;
 
         public TaaskViewModel(Taask taask)
         {
             this.taask = taask ?? throw new ArgumentNullException(nameof(taask));
 
             title = taask.Title;
+            label = taask.Running ? "Stop" : "Start";
 
             _ = taask
                 .Time
-                .Subscribe(t => Time = t.Seconds.ToString());
+                .Subscribe(t => Time = t.ToString("D:hh:mm:ss.f", null));
         }
 
         public string Title
@@ -46,6 +48,23 @@
             }
         }
 
-        public void StartStop() => taask.Stop();
+        public string Label
+        {
+            get => label;
+            set
+            {
+                if (value != label)
+                {
+                    label = value;
+                    NotifyOfPropertyChange(() => Label);
+                }
+            }
+        }
+
+        public void Toggle()
+        {
+            taask.Toggle();
+            Label = taask.Running ? "Stop" : "Start";
+        }
     }
 }

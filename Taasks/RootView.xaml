@@ -24,8 +24,9 @@
                 <Setter Property="CornerRadius" Value="7" />
             </Style>
         </Border.Resources>
-        <Grid>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <ContentControl x:Name="Taask" />
-        </Grid>
+            <ContentControl x:Name="Taask2" />
+        </StackPanel>
     </Border>
 </Window>

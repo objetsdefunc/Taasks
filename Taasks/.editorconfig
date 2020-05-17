@@ -46,5 +46,11 @@ csharp_style_var_for_built_in_types = false:none
 # IDE0008: Use explicit type
 csharp_style_var_when_type_is_apparent = false:none
 
+# CS8019: Unnecessary using directive
+dotnet_diagnostic.CS8019.severity = error
+
+# IDE0005: Using directive is unnecessary.
+dotnet_diagnostic.IDE0005.severity = error
+
 [*.xml]
 indent_style = space
