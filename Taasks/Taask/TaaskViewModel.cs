@@ -6,6 +6,8 @@
     public sealed class TaaskViewModel : Screen
     {
         private readonly Taask taask;
+        private readonly IDisposable subscription;
+
         private string title;
         private string time;
         private string label;
@@ -15,10 +17,10 @@
             this.taask = taask ?? throw new ArgumentNullException(nameof(taask));
 
             title = taask.Title;
-            label = taask.Running ? "Stop" : "Start";
+            label = taask.IsLogging ? "Stop" : "Start";
 
-            _ = taask
-                .Time
+            subscription = taask
+                .LoggedTime
                 .Subscribe(t => Time = t.ToString("D:hh:mm:ss.f", null));
         }
 
@@ -64,7 +66,14 @@
         public void Toggle()
         {
             taask.Toggle();
-            Label = taask.Running ? "Stop" : "Start";
+            Label = taask.IsLogging ? "Stop" : "Start";
+        }
+
+        protected override void OnDeactivate(bool close)
+        {
+            base.OnDeactivate(close);
+
+            subscription.Dispose();
         }
     }
 }

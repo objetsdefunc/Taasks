@@ -8,28 +8,28 @@
     public sealed class Taask
     {
         private readonly string title;
-        private readonly TaaskPeriods periods;
-        private readonly ISubject<Duration> time;
+        private readonly TaaskPeriodLog log;
+        private readonly ISubject<Duration> loggedTime;
 
         // What about checks?
-        public Taask(IClock clock)
+        public Taask(string title, IClock clock)
         {
-            periods = new TaaskPeriods(clock);
-            title = "Taask 1";
+            this.title = title;
+            log = new TaaskPeriodLog(clock);
 
-            time = new BehaviorSubject<Duration>(Duration.Zero);
+            loggedTime = new BehaviorSubject<Duration>(Duration.Zero);
         }
 
         public string Title => title;
 
-        public bool Running => periods.Running;
+        public IObservable<Duration> LoggedTime => loggedTime.StartWith(Duration.Zero);
 
-        public IObservable<Duration> Time => time.StartWith(Duration.Zero);
+        public bool IsLogging => log.IsLogging;
 
         public void Toggle()
         {
-            periods.Toggle(
-                duration => time.OnNext(duration));
+            log.Toggle(
+                duration => loggedTime.OnNext(duration));
         }
     }
 }

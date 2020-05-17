@@ -88,8 +88,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="AppBootstrapper.cs" />
+    <Compile Include="Taask\IdleTaaskPeriod.cs" />
+    <Compile Include="Taask\LoggingTaaskPeriod.cs" />
     <Compile Include="Taask\TaaskPeriod.cs" />
-    <Compile Include="Taask\TaaskPeriods.cs" />
+    <Compile Include="Taask\TaaskPeriodLog.cs" />
     <Compile Include="Taask\TaaskView.xaml.cs">
       <DependentUpon>TaaskView.xaml</DependentUpon>
     </Compile>

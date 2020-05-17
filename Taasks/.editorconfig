@@ -52,5 +52,17 @@ dotnet_diagnostic.CS8019.severity = error
 # IDE0005: Using directive is unnecessary.
 dotnet_diagnostic.IDE0005.severity = error
 
+# CA1715: Identifiers should have correct prefix
+dotnet_diagnostic.CA1715.severity = none
+
+# IDE1006: Naming Styles
+dotnet_diagnostic.IDE1006.severity = none
+
+# SA1302: Interface names should begin with I
+dotnet_diagnostic.SA1302.severity = none
+
+# CA1711: Identifiers should not have incorrect suffix
+dotnet_diagnostic.CA1711.severity = none
+
 [*.xml]
 indent_style = space

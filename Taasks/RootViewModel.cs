@@ -5,16 +5,16 @@
 
     public sealed class RootViewModel : Screen
     {
-        private readonly TaaskViewModel taask;
+        private readonly TaaskViewModel taask1;
         private readonly TaaskViewModel taask2;
 
         public RootViewModel()
         {
-            taask = new TaaskViewModel(new Taask(SystemClock.Instance));
-            taask2 = new TaaskViewModel(new Taask(SystemClock.Instance));
+            taask1 = new TaaskViewModel(new Taask("Tassk 1", SystemClock.Instance));
+            taask2 = new TaaskViewModel(new Taask("Tassk 2", SystemClock.Instance));
         }
 
-        public TaaskViewModel Taask => taask;
+        public TaaskViewModel Taask => taask1;
 
         public TaaskViewModel Taask2 => taask2;
     }
